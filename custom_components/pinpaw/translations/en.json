@@ -1,0 +1,50 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Connect to PinPaw",
+        "description": "Paste a PinPaw API token. Create one in the PinPaw app under Settings → API tokens.",
+        "data": {
+          "base_url": "Server URL",
+          "api_token": "API token",
+          "use_websocket": "Enable real-time updates (WebSocket)"
+        }
+      },
+      "reconfigure": {
+        "title": "Reconfigure PinPaw",
+        "description": "Update the server URL, API token or real-time setting. The token must belong to the same PinPaw account.",
+        "data": {
+          "base_url": "Server URL",
+          "api_token": "API token",
+          "use_websocket": "Enable real-time updates (WebSocket)"
+        }
+      }
+    },
+    "error": {
+      "invalid_auth": "The API token was rejected.",
+      "cannot_connect": "Could not reach the PinPaw server.",
+      "invalid_token_format": "API tokens start with 'ppw_pat_'."
+    },
+    "abort": {
+      "already_configured": "This PinPaw account is already configured.",
+      "account_mismatch": "That token belongs to a different PinPaw account. Use a token for the same account, or add a new integration.",
+      "reconfigure_successful": "PinPaw was reconfigured successfully."
+    }
+  },
+  "entity": {
+    "device_tracker": {
+      "location": { "name": "Location" }
+    },
+    "sensor": {
+      "battery": { "name": "Battery" }
+    },
+    "binary_sensor": {
+      "online": { "name": "Online" },
+      "charging": { "name": "Charging" },
+      "battery_low": { "name": "Battery low" }
+    },
+    "number": {
+      "tracking_interval": { "name": "Reporting interval" }
+    }
+  }
+}

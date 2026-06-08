@@ -1,0 +1,50 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Połącz z PinPaw",
+        "description": "Wklej token API PinPaw. Utwórz go w aplikacji PinPaw w sekcji Ustawienia → Tokeny API.",
+        "data": {
+          "base_url": "Adres serwera",
+          "api_token": "Token API",
+          "use_websocket": "Aktualizacje na żywo (WebSocket)"
+        }
+      },
+      "reconfigure": {
+        "title": "Rekonfiguracja PinPaw",
+        "description": "Zmień adres serwera, token API lub ustawienie aktualizacji na żywo. Token musi należeć do tego samego konta PinPaw.",
+        "data": {
+          "base_url": "Adres serwera",
+          "api_token": "Token API",
+          "use_websocket": "Aktualizacje na żywo (WebSocket)"
+        }
+      }
+    },
+    "error": {
+      "invalid_auth": "Token API został odrzucony.",
+      "cannot_connect": "Nie można połączyć się z serwerem PinPaw.",
+      "invalid_token_format": "Tokeny API zaczynają się od 'ppw_pat_'."
+    },
+    "abort": {
+      "already_configured": "To konto PinPaw jest już skonfigurowane.",
+      "account_mismatch": "Ten token należy do innego konta PinPaw. Użyj tokenu dla tego samego konta lub dodaj nową integrację.",
+      "reconfigure_successful": "PinPaw został pomyślnie przekonfigurowany."
+    }
+  },
+  "entity": {
+    "device_tracker": {
+      "location": { "name": "Lokalizacja" }
+    },
+    "sensor": {
+      "battery": { "name": "Bateria" }
+    },
+    "binary_sensor": {
+      "online": { "name": "Online" },
+      "charging": { "name": "Ładowanie" },
+      "battery_low": { "name": "Niski poziom baterii" }
+    },
+    "number": {
+      "tracking_interval": { "name": "Interwał raportowania" }
+    }
+  }
+}
