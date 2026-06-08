@@ -5,9 +5,9 @@ proxies device updates over ``/api/socket?jwt=<token>``; the same personal
 access token used for REST is accepted on the WebSocket handshake.
 
 The stream is heterogeneous: the first frame is PinPaw's normalised
-``{"positions": [{petId, latitude, ...}]}`` and later frames are raw Traccar
-updates keyed by ``deviceId``. We optimistically apply what we can parse and
-let the coordinator pull authoritative state via a (debounced) REST refresh.
+``{"positions": [{petId, latitude, ...}]}`` and later frames may omit ``petId``.
+We optimistically apply what we can parse and let the coordinator pull
+authoritative state via a (debounced) REST refresh.
 """
 
 from __future__ import annotations

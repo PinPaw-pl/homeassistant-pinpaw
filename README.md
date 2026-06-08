@@ -2,10 +2,10 @@
 
 Custom integration (HACS) for the [PinPaw](https://pinpaw.io) GPS pet tracker.
 
-> **Status: skeleton / starting point.** The structure, entities and API
-> client are in place and follow current Home Assistant conventions, but the
-> integration has not yet been run against a live backend. Treat endpoint
-> shapes and field names as the contract to verify before release.
+> **Status: working — experimental.** The integration runs against a live
+> PinPaw backend — location, battery, charging, online status and the
+> reporting-interval control are all verified in Home Assistant. It is still
+> experimental, so bugs may surface; please report any issues.
 
 ## Features
 
@@ -63,8 +63,8 @@ To make the PinPaw logo appear in the HA UI, open a PR adding those files to
   (`const.py`, authoritative) **and** an optional WebSocket push
   (`/api/socket?jwt=<token>`) for near real-time coordinates. The push is
   enabled by default and can be turned off during setup. Pushed frames that
-  carry `petId` are applied instantly; other frames (e.g. raw Traccar updates
-  keyed by `deviceId`) trigger a debounced REST refresh instead.
+  carry a `petId` are applied instantly; other frames trigger a debounced REST
+  refresh instead.
 
 ## Layout
 

@@ -80,8 +80,8 @@ class PinPawCoordinator(DataUpdateCoordinator[dict[int, dict[str, Any]]]):
         """Apply a pushed ``{"positions": [...]}`` frame.
 
         Frames carrying ``petId`` (PinPaw's normalised shape) are merged in
-        place for instant updates. Anything else — including raw Traccar frames
-        keyed by ``deviceId`` — falls back to a debounced authoritative refresh.
+        place for instant updates. Anything else — frames without a ``petId`` —
+        falls back to a debounced authoritative refresh.
         """
         if not self.data:
             return
@@ -102,7 +102,7 @@ class PinPawCoordinator(DataUpdateCoordinator[dict[int, dict[str, Any]]]):
                 )
                 updated = True
             else:
-                # Unknown shape (e.g. raw Traccar deviceId) — let REST reconcile.
+                # Unknown shape (no petId) — let REST reconcile.
                 needs_refresh = True
 
         if updated:
