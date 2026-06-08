@@ -48,12 +48,12 @@ new token must belong to the same PinPaw account; the entities are kept.
 
 ## Brand images (logo)
 
-Home Assistant serves integration logos from the
-[`home-assistant/brands`](https://github.com/home-assistant/brands) repository,
-not from this package. The ready-to-submit icons live in
-`brands/custom_integrations/pinpaw/` (`icon.png` 256×256, `icon@2x.png` 512×512).
-To make the PinPaw logo appear in the HA UI, open a PR adding those files to
-`custom_integrations/pinpaw/` in `home-assistant/brands`.
+The PinPaw icon and logo ship with the integration in
+`custom_components/pinpaw/brand/` (`icon.png` 256×256, `icon@2x.png` 512×512,
+`logo.png`, `logo@2x.png`). Since Home Assistant 2026.3, custom integrations
+serve their own brand images locally and they take priority over the brands
+CDN — no `home-assistant/brands` submission is needed. On older Home Assistant
+versions the default icon is shown instead.
 
 ## Notes / things to verify against the live API
 
