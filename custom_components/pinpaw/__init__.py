@@ -8,7 +8,7 @@ from homeassistant.core import HomeAssistant
 from homeassistant.helpers.aiohttp_client import async_get_clientsession
 
 from .api import PinPawClient
-from .const import CONF_API_TOKEN, CONF_BASE_URL, DOMAIN
+from .const import CONF_API_TOKEN, CONF_BASE_URL
 from .coordinator import PinPawCoordinator
 
 PLATFORMS: list[Platform] = [

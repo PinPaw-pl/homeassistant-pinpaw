@@ -29,6 +29,9 @@ from .websocket import PinPawWebSocket
 
 _LOGGER = logging.getLogger(__name__)
 
+# Position fields copied verbatim from a pushed frame into ``latestPosition``.
+_PUSH_FIELDS = ("latitude", "longitude", "batteryLevel", "charging", "online")
+
 
 class PinPawCoordinator(DataUpdateCoordinator[dict[int, dict[str, Any]]]):
     """Fetches all pets once per interval and indexes them by pet id."""
@@ -94,11 +97,7 @@ class PinPawCoordinator(DataUpdateCoordinator[dict[int, dict[str, Any]]]):
             pet_id = pos.get("petId")
             if pet_id in self.data:
                 self.data[pet_id].setdefault("latestPosition", {}).update(
-                    {
-                        k: pos[k]
-                        for k in ("latitude", "longitude", "batteryLevel", "charging", "online")
-                        if k in pos
-                    }
+                    {k: pos[k] for k in _PUSH_FIELDS if k in pos}
                 )
                 updated = True
             else:
